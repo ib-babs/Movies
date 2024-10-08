@@ -1,0 +1,38 @@
+@page
+@model MoviePage.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+@if (Model.Movies != null && Model.Movies.Count() > 0)
+{
+    <div class="table-responsive">
+        <table class="table table-secondary">
+            <thead>
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(m => m.Movies[0].Title)</th>
+                    <th scope="col">@Html.DisplayNameFor(m => m.Movies[0].ReleaseDate)</th>
+                    <th scope="col">@Html.DisplayNameFor(m => m.Movies[0].Genre)</th>
+                    <th scope="col">@Html.DisplayNameFor(m => m.Movies[0].Price)</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var movie in Model.Movies)
+            {
+                <tr class="">
+                    <td scope="row">@Html.DisplayFor(m => movie.Title)</td>
+                    <td scope="row">@Html.DisplayFor(m => movie.ReleaseDate)</td>
+                    <td scope="row">@Html.DisplayFor(m => movie.Genre)</td>
+                    <td scope="row">@Html.DisplayFor(m => movie.Price)</td>
+                    <td scope="row">
+                        <a asp-page="./Edit" asp-route-id="@movie.Id">Edit</a> |
+                        <a asp-page="./Delete" asp-route-id="@movie.Id">Delete</a> |
+                        <a asp-page="./Detail"  asp-route-id="@movie.Id">View</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

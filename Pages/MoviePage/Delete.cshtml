@@ -1,0 +1,17 @@
+﻿@page "{id:int}"
+@model Movies.Pages.MoviePage.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<p scope="col">@Html.DisplayNameFor(m => m.Movie.Title): @Html.DisplayFor(m => m.Movie.Title)</p>
+<p scope="col">@Html.DisplayNameFor(m => m.Movie.ReleaseDate): @Html.DisplayFor(m => m.Movie.ReleaseDate)</p>
+<p scope="col">@Html.DisplayNameFor(m => m.Movie.Genre): @Html.DisplayFor(m => m.Movie.Genre)</p>
+<p scope="col">@Html.DisplayNameFor(m => m.Movie.Price): @Html.DisplayFor(m => m.Movie.Price)</p>
+
+<form method="post">
+    <button class="btn btn-danger" type="submit">
+        Delete
+    </button>
+</form>
